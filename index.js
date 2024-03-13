@@ -34,16 +34,16 @@ app.get("/achievement/getlist", async (req, res) => {
     }
 })
 
-app.get("/achievement/get/:id", async (req, res) => {
-    try {
-        const getData = await Achievement.findById(req.params.id)
-        res.send(getData).status(201)
+// app.get("/achievement/get/:id", async (req, res) => {
+//     try {
+//         const getData = await Achievement.findById(req.params.id)
+//         res.send(getData).status(201)
 
-    } catch (error) {
-        console.log(error)
-        res.send(error).status(400)
-    }
-})
+//     } catch (error) {
+//         console.log(error)
+//         res.send(error).status(400)
+//     }
+// })
 
 app.patch("/achievement/update/:id", async (req, res) => {
     try {
