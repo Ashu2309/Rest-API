@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
 
 app.use(express.json())
 
-app.post("/achievement", async (req, res) => {
+app.post("/achievement/create", async (req, res) => {
     try {
         const insertData = new Achievement(req.body)
         const dataAchievement = await insertData.save();
@@ -24,7 +24,7 @@ app.post("/achievement", async (req, res) => {
     }
 })
 
-app.get("/achievement", async (req, res) => {
+app.get("/achievement/getlist", async (req, res) => {
     try {
         const getData = await Achievement.find({})
         res.send(getData).status(201)
@@ -34,7 +34,7 @@ app.get("/achievement", async (req, res) => {
     }
 })
 
-app.get("/achievement/:id", async (req, res) => {
+app.get("/achievement/get/:id", async (req, res) => {
     try {
         const getData = await Achievement.findById(req.params.id)
         res.send(getData).status(201)
@@ -45,7 +45,7 @@ app.get("/achievement/:id", async (req, res) => {
     }
 })
 
-app.patch("/achievement/:id", async (req, res) => {
+app.patch("/achievement/update/:id", async (req, res) => {
     try {
         const updateData = await Achievement.findByIdAndUpdate(req.params.id, req.body)
         res.send(updateData).status(201)
@@ -56,7 +56,7 @@ app.patch("/achievement/:id", async (req, res) => {
     }
 })
 
-app.delete("/achievement/:id", async (req, res) => {
+app.delete("/achievement/delete/:id", async (req, res) => {
     try {
         const deleteData = await Achievement.findByIdAndDelete(req.params.id)
         res.send(deleteData).status(200)
