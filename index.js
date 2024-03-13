@@ -1,8 +1,8 @@
 const express = require('express');
 require('dotenv').config();
 const cors = require('cors');
-require("./db/conn")
-const Achievement = require("./models/men")
+require("./src/db/conn")
+const Achievement = require("./src/models/men")
 const app = express()
 app.use(cors());
 const port = process.env.PORT || 8000;
